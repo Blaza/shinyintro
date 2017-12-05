@@ -46,7 +46,7 @@ Kada radimo sa linearnim modelima, obično pratimo sledeći niz koraka:
 2. Odaberemo zavisne i nezavisne promenljive i napišemo ih kroz "formulu"...
 3. ...koju prosledimo funkciji `lm` da bismo dobili model
 4. Pogledamo `summary` modela
-5. "Plotujemo"" reziduale i proveravamo uslove Gaus-Markova itd.
+5. "Plotujemo" reziduale i proveravamo uslove Gaus-Markova itd.
 6. Ako nešto nije u redu, vratimo se na 2. i radimo ispočetka ostale korake
 
 Može postati dosadno kucati jedne te iste funkcije u terminal, pa bismo želeli da ovaj proces svedemo samo na korake 1. i 2., koji zahtevaju naše razmišljanje.
