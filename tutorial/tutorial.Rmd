@@ -1,11 +1,12 @@
 ---
 title: "Praktičan uvod u *Shiny*"
 author: "Blagoje Ivanović"
-date: "31.11.2017"
+date: "8.12.2017"
 output:
   html_document:
     css: styles.css
     toc: true
+    toc_float: true
     smart: true
 ---
 
@@ -51,12 +52,13 @@ Kada radimo sa linearnim modelima, obično pratimo sledeći niz koraka:
 
 Može postati dosadno kucati jedne te iste funkcije u terminal, pa bismo želeli da ovaj proces svedemo samo na korake 1. i 2., koji zahtevaju naše razmišljanje.
 
-Lep način da to uradimo je upravo da napravimo jednu blistavu veb aplikaciju! U njoj ćemo dati fajl koji sadrži podatke, odabrati formulu koja odredjuje zavisne i nezavisne promenljive i pustiti da Shiny odrati ostali posao i prikaže nam `summary` i grafike, na osnovu kojih dalje menjamo formulu i pratimo rezultate.
+Lep način da to uradimo je upravo da napravimo jednu blistavu veb aplikaciju! U njoj ćemo dati fajl koji sadrži podatke, odabrati formulu koja odredjuje zavisne i nezavisne promenljive i pustiti da Shiny odradi ostali posao i prikaže nam `summary` i grafike, na osnovu kojih dalje menjamo formulu i pratimo rezultate.
 
 ---------------------------
 
 # Shiny aplikacija
-Pokrenimo Rstudio i napravimo novi Shiny projekat (`File > New project > New directory > Shiny Web Application > [odaberite lokaciju]`). Shiny nam u odabranom direktorijumu napravi dva fajla: `ui.R` i `server.R`. Prvi fajl nam služi da definišemo elemente koje ćemo imati na stranici i njihovu vizuelnu strukturu, a u drugom ćemo definisati samo ponašanje aplikacije i sve što se dogadja u pozadini, tj. srž same aplikacije. Ova arhitektura koju prati Shiny je jako lepa, jer odvaja sam izgled aplikacije od njene suštine, tj. ponašanja.
+
+Pokrenimo Rstudio i napravimo novi Shiny projekat (`File > New project > New directory > Shiny Web Application > [odaberite lokaciju]`). Shiny nam u odabranom direktorijumu napravi dva fajla: `ui.R` i `server.R`. Prvi fajl nam služi da definišemo elemente koje ćemo imati na stranici i njihovu vizuelnu strukturu, a u drugom ćemo definisati samo ponašanje aplikacije i sve što se dogadja u pozadini, tj. srž same aplikacije. Ova arhitektura koju prati Shiny je jako lepa, jer odvaja sam izgled aplikacije od njenog ponašanja.
 
 Prvo ćemo početi od izgleda i definisanja vizuelnih elemenata aplikacije.
 
