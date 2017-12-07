@@ -6,7 +6,9 @@ output:
   html_document:
     css: styles.css
     toc: true
-    toc_float: true
+    toc_depth: 3
+    toc_float: 
+      collapsed: false
     smart: true
 ---
 
