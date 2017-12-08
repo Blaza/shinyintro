@@ -262,7 +262,7 @@ Sada imamo jednu funkcionalnu aplikaciju koja štampa osnovne informacije o mode
 
 Sada ćemo implementirati ostatak željene aplikacije - generisaćemo grafike reziduala.
 
-Prvo ćemo dodati kao ulaz jednu grupu za odabir željenog grafika pomoću `radioButtons` ulaza. Nudićemo grafik svih podataka, grafik reziduala, i grafik reziduala u odnosu na predvidjene vrednosti.
+Prvo ćemo dodati kao ulaz jednu grupu za odabir željenog grafika pomoću `radioButtons` ulaza. Nudićemo grafik svih podataka, grafik podataka iz formule, grafik reziduala, i grafik reziduala u odnosu na predvidjene vrednosti.
 
 Takodje ćemo dodati `plotOutput` koji će sadržati grafike koje napravimo.
 
@@ -283,6 +283,7 @@ shinyUI(fluidPage(
       hr(),
       radioButtons("plot_choice", "Show plot:",
                    c("All data plot" = "all_data",
+                     "Formula plot" = "formula",
                      "Residual plot" = "resid",
                      "Residual vs fitted" = "resvfit"))
     ),
@@ -311,6 +312,7 @@ shinyServer(function(input, output) {
     m <- lm(as.formula(input$formula), data = model_data())
     switch(input$plot_choice,
            all_data = plot(model_data()),
+           formula = plot(as.formula(input$formula), data = model_data()),
            resid = plot(m$residuals),
            resvfit = plot(m$residuals ~ m$fitted.values))
   })
@@ -347,6 +349,7 @@ shinyServer(function(input, output) {
     m <- model()
     switch(input$plot_choice,
            all_data = plot(model_data()),
+           formula = plot(as.formula(input$formula), data = model_data()),
            resid = plot(m$residuals),
            resvfit = plot(m$residuals ~ m$fitted.values))
   })
@@ -462,6 +465,7 @@ shinyUI(fluidPage(
       hr(),
       radioButtons("plot_choice", "Show plot:",
                    c("All data plot" = "all_data",
+                     "Formula plot" = "formula",
                      "Residual plot" = "resid",
                      "Residual vs fitted" = "resvfit"))
     ),
@@ -527,6 +531,7 @@ shinyServer(function(input, output) {
     m <- model()
     switch(input$plot_choice,
            all_data = plot(model_data()),
+           formula = plot(as.formula(input$formula), data = model_data()),
            resid = plot(m$residuals),
            resvfit = plot(m$residuals ~ m$fitted.values))
   })
